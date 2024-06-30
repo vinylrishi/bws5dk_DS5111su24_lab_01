@@ -162,4 +162,4 @@ cython_debug/
 #.idea/  
 
 # Text Files  
-*.txt
+# I am removing the *.txt gitignore as it prevents me from pushing any text files into the repo, which is problematic for a lot of the book related stuff.
