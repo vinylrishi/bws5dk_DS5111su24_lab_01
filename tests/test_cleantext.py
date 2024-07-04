@@ -1,6 +1,11 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # Had to google this directory code to ensure tokenizers.py was being used
+
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
+sys.path.insert(0, parent_dir)
+
+test_books_dir = os.path.join(parent_dir, 'test_books')
 
 import pytest
 from tokenizers import clean_text
@@ -31,7 +36,8 @@ def test_clean_text_fail():
 
 # Test The Raven
 def test_clean_text_raven():
-    with open('test_books/pg17192.txt', 'r') as raven:
+    raven_path = os.path.join(test_books_dir, 'pg17192.txt')
+    with open(raven_path, 'r') as raven:
         text = raven.read()
     cleaned = clean_text(text)
     assert isinstance(cleaned, str), f"Text Cleaner failed on The Raven"
@@ -39,15 +45,16 @@ def test_clean_text_raven():
 
 # Test all English files alone and together with parameterization
 @pytest.mark.parametrize("books", [
-    'test_books/pg17192.txt',
-    'test_books/pg932.txt',
-    'test_books/pg1063.txt',
-    'test_books/pg10031.txt'])
+    'pg17192.txt',
+    'pg932.txt',
+    'pg1063.txt',
+    'pg10031.txt'])
 
 
 def test_clean_text_all(books):
     for book in books:
-        with open(book,'r') as booky:
+        book_path = os.path.join(test_books_dir, book)
+        with open(book_path,'r') as booky:
             text = booky.read()
             cleaned = clean_text(text)
             assert isinstance(cleaned, str), f"Text Cleaner failed on: {book}"
@@ -58,7 +65,8 @@ def test_clean_text_all(books):
 def test_clean_text_combined(books):
     combined_text = ""
     for book in books:
-        with open(book,'r') as booky:
+        book_path = os.path.join(test_books_dir, book)
+        with open(book_path,'r') as booky:
             combined_text += " " + booky.read()
     cleaned = clean_text(combined_text)
     assert isinstance(cleaned, str), f"Text Cleaner failed on combined texts"
