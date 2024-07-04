@@ -44,11 +44,11 @@ def test_clean_text_raven():
     print(cleaned[0:500])
 
 # Test all English files alone and together with parameterization
-@pytest.mark.parametrize("books", [[
+@pytest.mark.parametrize("books", [
     'pg17192.txt',
     'pg932.txt',
     'pg1063.txt',
-    'pg10031.txt']])
+    'pg10031.txt'])
 
 
 def test_clean_text_all(books):
