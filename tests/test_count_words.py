@@ -44,25 +44,24 @@ def test_count_words_raven():
     print('Count for word `the`: ' + str(counts['the']))
 
 # Test all English files alone and together with parameterization
-@pytest.mark.parametrize("books", [
+@pytest.mark.parametrize("book", [
     'pg17192.txt',
     'pg932.txt',
     'pg1063.txt',
     'pg10031.txt'])
 
 
-def test_count_words_all(books):
-    for book in books:
-        book_path = os.path.join(test_books_dir, book)
-        with open(book_path,'r') as booky:
-            text = booky.read()
-            counts = count_words(text)
-            assert isinstance(counts, dict), f"Word count failed on: {book}"
-            print('Count for word `the`: ' + str(counts['the']))
+def test_count_words_all(book):
+    book_path = os.path.join(test_books_dir, book)
+    with open(book_path,'r') as booky:
+        text = booky.read()
+        counts = count_words(text)
+        assert isinstance(counts, dict), f"Word count failed on: {book}"
+        print('Count for word `the`: ' + str(counts['the']))
 
-def test_count_words_combined(books):
+def test_count_words_combined(book):
     combined_text = ""
-    for book in books:
+    for book in book:
         book_path = os.path.join(test_books_dir, book)
         with open(book_path,'r') as booky:
             combined_text += " " + booky.read()
