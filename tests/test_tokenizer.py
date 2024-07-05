@@ -43,28 +43,27 @@ def test_tokenize_raven():
     print(tokens[0:50])
 
 # Test all English files alone and together with parameterization
-@pytest.mark.parametrize("books", [
+@pytest.mark.parametrize("book", [
     'pg17192.txt',
     'pg932.txt',
     'pg1063.txt',
     'pg10031.txt'])
 
 
-def test_tokenize_all(books):
-    for book in books:
-        book_path = os.path.join(test_books_dir, book)
-        with open(book_path,'r') as booky:
-            text = booky.read()
-            tokens = tokenize(text)
-            assert isinstance(tokens, list), f"Tokenizer failed on: {book}"
-            print(f"Length of {book} tokeized list: " + str(len(tokens)))
-            print(f"Sample of {book} tokens: ")
-            print(tokens[0:15])
+def test_tokenize_all(book):
+    book_path = os.path.join(test_books_dir, book)
+    with open(book_path,'r') as booky:
+        text = booky.read()
+        tokens = tokenize(text)
+        assert isinstance(tokens, list), f"Tokenizer failed on: {book}"
+        print(f"Length of {book} tokeized list: " + str(len(tokens)))
+        print(f"Sample of {book} tokens: ")
+        print(tokens[0:15])
 
 
-def test_tokenize_combined(books):
+def test_tokenize_combined(book):
     combined_text = ""
-    for book in books:
+    for book in book:
         book_path = os.path.join(test_books_dir, book)
         with open(book_path,'r') as booky:
             combined_text += " " + booky.read()
