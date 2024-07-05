@@ -44,22 +44,21 @@ def test_clean_text_raven():
     print(cleaned[0:500])
 
 # Test all English files alone and together with parameterization
-@pytest.mark.parametrize("books", [
+@pytest.mark.parametrize("book", [
     'pg17192.txt',
     'pg932.txt',
     'pg1063.txt',
     'pg10031.txt'])
 
 
-def test_clean_text_all(books):
-    for book in books:
-        book_path = os.path.join(test_books_dir, book)
-        with open(book_path,'r') as booky:
-            text = booky.read()
-            cleaned = clean_text(text)
-            assert isinstance(cleaned, str), f"Text Cleaner failed on: {book}"
-            print(f"Length of {book} text: " + str(len(cleaned)))
-            print(f"Sample of {book} text: " + cleaned[0:45])
+def test_clean_text_all(book):
+    book_path = os.path.join(test_books_dir, book)
+    with open(book_path,'r') as booky:
+        text = booky.read()
+        cleaned = clean_text(text)
+        assert isinstance(cleaned, str), f"Text Cleaner failed on: {book}"
+        print(f"Length of {book} text: " + str(len(cleaned)))
+        print(f"Sample of {book} text: " + cleaned[0:45])
 
 
 def test_clean_text_combined(books):
