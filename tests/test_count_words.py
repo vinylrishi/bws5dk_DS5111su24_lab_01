@@ -60,14 +60,22 @@ def test_count_words_all(book):
         print('Count for word `the`: ' + str(counts['the']))
 
 def test_count_words_combined(book):
-    combined_text = ""
-    for book in book:
+    temp_file_path = os.path.join(test_books_dir, 'temp.txt')
+    with open(temp_file_path, 'a') as temp_file:
         book_path = os.path.join(test_books_dir, book)
-        with open(book_path,'r') as booky:
-            combined_text += " " + booky.read()
-    counts = count_words(combined_text)
-    assert isinstance(counts, dict), f"Tokenizer failed on combined texts"
-    print('Count for word `the` in combined text: ' + str(counts['the']))
+        with open(book_path, 'r') as book_file:
+            text = book_file.read()
+        temp_file.write(text + "\n")
+    with open(temp_file_path, 'r') as temp_file:
+        concatenated_text = temp_file.read()
+    counts = count_words(concatenated_text)
+    assert isinstance(counts, dict), f"Word counter failed on combined texts"
+    print(f"Count for word `the` in combined text after {book} text added: " + str(counts['the']))
+
+def test_delete_concat_text():
+    temp_file_path = os.path.join(test_books_dir, 'temp.txt')
+    os.remove(temp_file_path)
+    assert not os.path.exists(temp_file_path), f"File {temp_file_path} still exists and needs to be removed"
 
 # Test French strings
 def test_count_words_french():

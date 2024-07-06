@@ -62,14 +62,23 @@ def test_tokenize_all(book):
 
 
 def test_tokenize_combined(book):
-    combined_text = ""
-    for book in book:
+    temp_file_path = os.path.join(test_books_dir, 'temp.txt')
+    with open(temp_file_path, 'a') as temp_file:
         book_path = os.path.join(test_books_dir, book)
-        with open(book_path,'r') as booky:
-            combined_text += " " + booky.read()
-    tokens = tokenize(combined_text)
+        with open(book_path, 'r') as book_file:
+            text = book_file.read()
+        temp_file.write(text + "\n")
+    with open(temp_file_path, 'r') as temp_file:
+        concatenated_text = temp_file.read()
+    tokens = tokenize(concatenated_text)
     assert isinstance(tokens, list), f"Tokenizer failed on combined texts"
-    print("Length of combined texts: " + str(len(tokens)))
+    print(f"Length of combined texts after {book} text added:: " + str(len(tokens)))
+
+
+def test_delete_concat_text():
+    temp_file_path = os.path.join(test_books_dir, 'temp.txt')
+    os.remove(temp_file_path)
+    assert not os.path.exists(temp_file_path), f"File {temp_file_path} still exists and needs to be removed"
 
 
 # Test French strings
