@@ -46,39 +46,7 @@ Output:
   ## Lab Github Automation
   [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-05%2Fgithub_automation)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)
 
-  - The repo had to be completely reorganized so the .github/workflows directory could be in the root of the repo. This also meant bringing many other files out of directories and into the root. See below the new repo structure:
-bws5dk_DS5111su24_lab_01
-.
-├── LICENSE
-├── README.md
-├── __pycache__
-│   └── tokenizers.cpython-39.pyc
-├── book_texts.txt
-├── get_the_books.sh
-├── makefile
-├── requirements.txt
-├── test_books
-│   ├── pg10031.txt
-│   ├── pg1063.txt
-│   ├── pg14082.txt
-│   ├── pg17192.txt
-│   └── pg932.txt
-├── test_books.txt
-├── test_integrations
-│   ├── __pycache__
-│   │   └── test_integrations.cpython-39.pyc
-│   └── test_integrations.py
-├── testing_notebook.ipynb
-├── tests
-│   ├── __pycache__
-│   │   ├── test_cleantext.cpython-39.pyc
-│   │   ├── test_count_words.cpython-39.pyc
-│   │   └── test_tokenizer.cpython-39.pyc
-│   ├── test_cleantext.py
-│   ├── test_count_words.py
-│   └── test_tokenizer.py
-└── tokenizers.py
-
+  - The repo had to be completely reorganized so the .github/workflows directory could be in the root of the repo. This also meant bringing many other files out of directories and into the root. 
   - This lab assignment required a lot of rewriting to the test codes, as parameterization proved to be troubling when running the workflow. A paticularly difficult part is the creation of a concatenated file for all English tests. This file had to be created through the parameterized  entry, used to test the final combined text, then deleted from the repo as it would continue concatenating for other test functions as well. A deletion function was created for this reason.
   - **Note: After calling the combined test for each added text file, you must call the test_delete_concat_text() function. A future work around to this will be checking to make sure the temp.txt file does not currently exist as part of the combined text file.**
   - Updates were also made to the makefile to include running non-integration and integration tests. These tests are held in separate directories for ease of identification.
