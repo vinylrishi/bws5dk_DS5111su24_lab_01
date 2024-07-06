@@ -28,7 +28,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
       - name: Running Non-Integration Tests
-        if: ${{ inputs.run_non_integration_tests == 'true' }}
+        if: ${{ inputs.running_non_integration_tests == 'true' }}
         run: |
           make tests
 
