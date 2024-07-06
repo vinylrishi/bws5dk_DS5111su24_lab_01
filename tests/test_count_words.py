@@ -59,6 +59,12 @@ def test_count_words_all(book):
         assert isinstance(counts, dict), f"Word count failed on: {book}"
         print('Count for word `the`: ' + str(counts['the']))
 
+@pytest.mark.parametrize("book", [
+    'pg17192.txt',
+    'pg932.txt',
+    'pg1063.txt',
+    'pg10031.txt'])
+
 def test_count_words_combined(book):
     temp_file_path = os.path.join(test_books_dir, 'temp.txt')
     with open(temp_file_path, 'a') as temp_file:
