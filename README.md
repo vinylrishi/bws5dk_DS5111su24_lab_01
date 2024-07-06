@@ -42,3 +42,6 @@ Output:
   Sample of test_books/pg1063.txt text: ﻿the project gutenberg ebook of the cask of a
   Length of test_books/pg10031.txt text: 380935
   Sample of test_books/pg10031.txt text: ﻿the project gutenberg ebook of the complete 
+
+  ## Lab Github Automation
+  [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-05%2Fgithub_automation)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)
