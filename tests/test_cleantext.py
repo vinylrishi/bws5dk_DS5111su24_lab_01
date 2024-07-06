@@ -60,6 +60,11 @@ def test_clean_text_all(book):
         print(f"Length of {book} text: " + str(len(cleaned)))
         print(f"Sample of {book} text: " + cleaned[0:45])
 
+@pytest.mark.parametrize("book", [
+    'pg17192.txt',
+    'pg932.txt',
+    'pg1063.txt',
+    'pg10031.txt'])
 
 def test_clean_text_combined(book):
     temp_file_path = os.path.join(test_books_dir, 'temp.txt')
