@@ -3,11 +3,7 @@ name: Python package
 on:
   push:
   workflow_dispatch:
-    inputs:
-      running-non-integration-tests:
-        description: 'Running non-integration tests'
-        required: true
-        default: 'true'
+
 jobs:
   build:
 
@@ -28,7 +24,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
       - name: Running Non-Integration Tests
-        if: ${{ inputs.running_non_integration_tests == 'true' }}
         run: |
           make tests
 
