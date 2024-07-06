@@ -42,3 +42,6 @@ env:
 test:
 	pytest -vvx tests
 
+test_integrations:
+	pytest -vvx test_integrations
+
