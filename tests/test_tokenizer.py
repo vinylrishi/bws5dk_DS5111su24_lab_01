@@ -60,6 +60,11 @@ def test_tokenize_all(book):
         print(f"Sample of {book} tokens: ")
         print(tokens[0:15])
 
+@pytest.mark.parametrize("book", [
+    'pg17192.txt',
+    'pg932.txt',
+    'pg1063.txt',
+    'pg10031.txt'])
 
 def test_tokenize_combined(book):
     temp_file_path = os.path.join(test_books_dir, 'temp.txt')
