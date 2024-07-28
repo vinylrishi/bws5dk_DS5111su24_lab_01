@@ -1,4 +1,4 @@
- # Repo: bws5dk_DS5111su24_lab_01
+# Repo: bws5dk_DS5111su24_lab_01
 - gitignore should contain *.txt  
 - Makerfile is in the "books" directory :)
   
@@ -71,4 +71,10 @@ Output:
 
   ## Lab Installable Package  
   - Restructured repo to house tokenizers.py into src/bws5dk directory
-  - Test files also required adjustment to access functions in new package directory 
+  - Test files also required adjustment to access functions in new package directory
+
+  ## Lab Refactoring and Linting
+  [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-05%2Fgithub_automation)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)  
+  - Badge above indicates that workflow that now include linting tests is passing at 10/10. Feel free to click on the badge and latest action to confirm.
+  - Added docstrings. Removed white spaces, unused imports, and excess lines at end of code.
+  - Makefile and workflow both updated to include linting.
