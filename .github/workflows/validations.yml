@@ -23,6 +23,10 @@ jobs:
           make env
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
+      - name: Linting
+        run: |
+          pylint src/bws5dk
+          
       - name: Running Non-Integration Tests
         run: |
           pytest -vvx tests/
