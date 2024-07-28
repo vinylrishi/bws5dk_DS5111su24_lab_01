@@ -39,9 +39,13 @@ check_py_requirements:
 env:
 	python3 -m venv env; . env/bin/activate; sudo pip install --upgrade pip; sudo pip install -r requirements.txt
 
-test:
+
+lint:                                                                                                                                                                                           
+	pylint src/bws5dk
+
+test: lint
 	pytest -vvx tests
 
-test_integrations:
+test_integrations: lint
 	pytest -vvx test_integrations
 
