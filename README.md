@@ -44,7 +44,7 @@ Output:
   Sample of test_books/pg10031.txt text: ﻿the project gutenberg ebook of the complete 
 
   ## Lab Github Automation
-  [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-05%2Fgithub_automation)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)
+  [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=main)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)
 
   - The repo had to be completely reorganized so the .github/workflows directory could be in the root of the repo. This also meant bringing many other files out of directories and into the root. 
   - This lab assignment required a lot of rewriting to the test codes, as parameterization proved to be troubling when running the workflow. A paticularly difficult part is the creation of a concatenated file for all English tests. This file had to be created through the parameterized  entry, used to test the final combined text, then deleted from the repo as it would continue concatenating for other test functions as well. A deletion function was created for this reason.
