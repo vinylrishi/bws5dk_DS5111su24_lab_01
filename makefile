@@ -33,5 +33,15 @@ total_words: pg17192.txt
 
 output_all_jobs: raven_line_count raven_word_count raven_counts total_lines total_words 	
 
+check_py_requirements: 
+	python3 -m venv env; sudo pip install --upgrade pip; sudo pip install -r requirements.txt
 
+env:
+	python3 -m venv env; . env/bin/activate; sudo pip install --upgrade pip; sudo pip install -r requirements.txt
+
+test:
+	pytest -vvx tests
+
+test_integrations:
+	pytest -vvx test_integrations
 
