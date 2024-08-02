@@ -1,12 +1,14 @@
-import sys
+"""This is the text tokenizer function. I am required to put this docstring for linting tests."""
 import string
-import logging 
+import logging
 from collections import Counter
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
 def clean_text(txt):
+    """This function should make all text 
+    lowercase and remove punctuation"""
     assert isinstance(txt,str), "String inputs only"
 
     log.info('Removing punctuation and case sensitivity')
@@ -20,6 +22,8 @@ def clean_text(txt):
 
 
 def tokenize(txt):
+    """This function should call the clean_text then 
+    tokenize all words in the cleaned text into a list"""
     assert isinstance(txt,str), "String inputs only"
 
     log.info("Text getting cleaned")
@@ -34,6 +38,8 @@ def tokenize(txt):
     return token_list
 
 def count_words(txt):
+    """This function should take the list of tokenized words 
+    and count the frequency of each word into a dictionary"""
     assert isinstance(txt,str), "String inputs only"
     log.info("Clean and tokenize input text")
     token_list = tokenize(txt)
@@ -48,6 +54,3 @@ def count_words(txt):
     assert isinstance(counts, dict), "Dictionary was not created"
 
     return counts
-
-
-

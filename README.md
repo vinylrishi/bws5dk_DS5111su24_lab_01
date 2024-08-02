@@ -1,4 +1,4 @@
- # Repo: bws5dk_DS5111su24_lab_01
+# Repo: bws5dk_DS5111su24_lab_01
 - gitignore should contain *.txt  
 - Makerfile is in the "books" directory :)
   
@@ -44,7 +44,7 @@ Output:
   Sample of test_books/pg10031.txt text: ﻿the project gutenberg ebook of the complete 
 
   ## Lab Github Automation
-  [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-05%2Fgithub_automation)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)
+  [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-07%2Frefactoring_and_linting)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)
 
   - The repo had to be completely reorganized so the .github/workflows directory could be in the root of the repo. This also meant bringing many other files out of directories and into the root. 
   - This lab assignment required a lot of rewriting to the test codes, as parameterization proved to be troubling when running the workflow. A paticularly difficult part is the creation of a concatenated file for all English tests. This file had to be created through the parameterized  entry, used to test the final combined text, then deleted from the repo as it would continue concatenating for other test functions as well. A deletion function was created for this reason.
@@ -67,4 +67,14 @@ Output:
   For the step to run the non-integration steps, under the name, this step was added.
   if: inputs.non_integration_tests == true
 
-  A few other variations of this were attempted but to no avail. 
+  A few other variations of this were attempted but to no avail.  
+
+  ## Lab Installable Package  
+  - Restructured repo to house tokenizers.py into src/bws5dk directory
+  - Test files also required adjustment to access functions in new package directory
+
+  ## Lab Refactoring and Linting
+  [![Python package](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-07%2Frefactoring_and_linting)](https://github.com/vinylrishi/bws5dk_DS5111su24_lab_01/actions/workflows/validations.yml)
+  - Badge above indicates that workflow that now include linting tests is passing at 10/10. Feel free to click on the badge and latest action to confirm.
+  - Added docstrings. Removed white spaces, unused imports, and excess lines at end of code.
+  - Makefile and workflow both updated to include linting.

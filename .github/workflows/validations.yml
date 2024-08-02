@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7"]
+        python-version: ["3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v4
@@ -22,6 +22,10 @@ jobs:
         run: |
           make env
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+      - name: Linting
+        run: |
+          pylint src/bws5dk
           
       - name: Running Non-Integration Tests
         run: |
