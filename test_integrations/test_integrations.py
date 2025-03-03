@@ -3,12 +3,12 @@ import os
 
 current_dir = os.path.dirname(__file__)
 parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
-sys.path.insert(0, parent_dir)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
 test_books_dir = os.path.join(parent_dir, 'test_books')
 
 import pytest
-from tokenizers import clean_text, tokenize, count_words
+from bws5dk.tokenizers import clean_text, tokenize, count_words
 
 # Note, in creating tokenizer function, clean_text was aleady integrated. Likewise, count_words function already integrates tokenize. Nonetheless, we will create these integration funcitons.
 

@@ -67,4 +67,8 @@ Output:
   For the step to run the non-integration steps, under the name, this step was added.
   if: inputs.non_integration_tests == true
 
-  A few other variations of this were attempted but to no avail. 
+  A few other variations of this were attempted but to no avail.  
+
+  ## Lab Installable Package  
+  - Restructured repo to house tokenizers.py into src/bws5dk directory
+  - Test files also required adjustment to access functions in new package directory 
